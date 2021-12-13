@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="org.odk.share">
+
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- Device with versions >= Oreo need location permission to start/stop the hotspot -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+
+    <application
+        android:name=".application.Share"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".views.ui.bluetooth.BtReceiverActivity"/>
+        <activity android:name=".views.ui.bluetooth.BtSenderActivity"/>
+        <activity android:name=".views.ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.ui.hotspot.HpReceiverActivity"
+            android:parentActivityName=".views.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.main.MainActivity" />
+        </activity>
+        <activity android:name=".views.ui.instance.InstancesList" />
+        <activity android:name=".views.ui.settings.SettingsActivity" />
+        <activity android:name=".views.ui.about.WebViewActivity" />
+        <activity
+            android:name=".views.ui.about.AboutActivity"
+            android:parentActivityName=".views.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.main.MainActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.hotspot.HpSenderActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <service android:name=".services.HotspotService" />
+
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name=".views.ui.instance.InstanceManagerTabs"
+            android:parentActivityName=".views.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.main.MainActivity" />
+        </activity>
+        <activity android:name=".views.ui.review.ReviewFormActivity" />
+
+        <provider
+            android:name=".provider.TransferProvider"
+            android:authorities="org.odk.share.provider.odk.instances" />
+        <provider
+            android:name=".provider.InstanceMapProvider"
+            android:authorities="org.odk.share.provider.odk.map" />
+
+        <activity
+            android:name=".views.ui.send.SendFormsActivity"
+            android:parentActivityName=".views.ui.main.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.main.MainActivity" />
+        </activity>
+    </application>
+
+</manifest>

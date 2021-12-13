@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detailactivity.PostDetailActivity">
+
+    <!-- Transitions given to username, createdAt, text, and image -->
+
+    <ImageView
+        android:id="@+id/detailProfilePicture"
+        android:layout_width="@dimen/profile_icon_size"
+        android:layout_height="@dimen/profile_icon_size"
+        android:src="@drawable/default_user"
+        android:transitionName="@string/transition_profile_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/detailUsername"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:transitionName="@string/transition_username"
+        app:layout_constraintStart_toEndOf="@+id/detailProfilePicture"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="lucas" />
+
+    <TextView
+        android:id="@+id/detailCreatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:transitionName="@string/transition_created_at"
+        app:layout_constraintBottom_toBottomOf="@+id/detailUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/detailUsername"
+        tools:text="1 day ago" />
+
+    <TextView
+        android:id="@+id/detailText"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:transitionName="@string/transition_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailUsername"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut porttitor condimentum enim at interdum. Aenean bibendum, tortor sit amet cursus ultricies, turpis risus laoreet tortor, et tristique orci nibh in elit. Nullam sit amet lectus rhoncus nisi dictum mattis quis sit amet mi. Morbi vel lorem eros." />
+
+    <TextView
+        android:id="@+id/detailLocation"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/detailIgnore"
+        app:layout_constraintStart_toStartOf="@+id/detailLike"
+        app:layout_constraintTop_toBottomOf="@+id/detailText"
+        tools:text="5 miles North" />
+
+    <ImageView
+        android:id="@+id/detailLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailText"
+        app:srcCompat="@drawable/outline_star_24" />
+
+    <ImageView
+        android:id="@+id/detailIgnore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailText"
+        app:srcCompat="@drawable/outline_flag_24" />
+
+    <ImageView
+        android:id="@+id/detailImage"
+        android:layout_width="@dimen/match_constraint"
+        android:layout_height="@dimen/match_constraint"
+        android:layout_margin="@dimen/small_margin"
+        android:transitionName="@string/transition_image"
+        app:layout_constraintBottom_toTopOf="@+id/detailFacebookShareButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailLocation"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <ImageView
+        android:id="@+id/detailTwitterShareButton"
+        android:layout_width="@dimen/profile_icon_size"
+        android:layout_height="@dimen/profile_icon_size"
+        android:src="@drawable/twitter_logo_24"
+        android:tint="@color/colorTwitterBlue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/detailFacebookShareButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

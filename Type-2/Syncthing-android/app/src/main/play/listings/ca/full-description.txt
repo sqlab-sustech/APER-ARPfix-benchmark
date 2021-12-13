@@ -1,0 +1,34 @@
+Versió alternativa de l'embolcall Syncthing-Android per al Syncthing que incorpora grans millores com:
+* "Sync every hour" to save even more battery
+* Changes to folder and device config can be made regardless if Syncthing is running or not
+* Es poden establir condicions de sincronització individuals per dispositiu i carpeta
+* Interfície gràfica de canvis recents, clic per obrir fitxers.
+* Arreglat el problema amb el consum de bateria.
+* Android 8, 9 and Q support.
+
+El Syncthing-Fork per Android és un embolcall per al Syncthing que proporciona una interfície Android enlloc de la interfície web integrada amb el Syncthing's. El Syncthing substitueix els serveis propietaris de sincronització i d'emmagatzematge en el núvol per una alternativa oberta, confiable i descentralitzada. Les vostres dades són només vostres, i heu de poder triar on voleu que s'emmagatzemin, si es comparteixen amb tercers i com es transmeten per Internet.
+
+Objectius de la versió alternativa:
+* Desenvolupar i provar millores conjuntament amb la comunitat.
+* Publicar l'aplicació amb més freqüència per identificar i resoldre errors causats per canvis en el submòdul del syncthing
+* Fer les millores configurables des de la interfície, els usuaris han de poder activar-les i desactivar-les
+
+Comparativa entre la versió oficial i l'alternativa en el moment d'escriure això:
+* Totes dues contenen el binari del syncthing compilat des del lloc oficial a GitHub:syncthing/syncthing
+* La funcionalitat i fiabilitat de la sincronització depen de la versió del submòdul binari del syncthing
+* La versió alternativa es porta bé amb la oficial i a vegades recullen les millores que hi faig.
+* L'estratègia i la freqüència de publicació és diferent
+* La versió alternativa només s'encarrega de l'embolcall que conté la interfície d'usuari.
+
+Pàgina web: https://github.com/Catfriend1/syncthing-android
+
+Codi font: https://github.com/Catfriend1/syncthing-android
+
+How Syncthing writes to external SD card: https://github.com/Catfriend1/syncthing-android/blob/master/wiki/SD-card-write-access.md
+
+Wiki, FAQ and helpful articles: https://github.com/Catfriend1/syncthing-android/wiki
+
+Problemes: https://github.com/Catfriend1/syncthing-android/issues
+
+Please help with the
+Traducció: https://www.transifex.com/projects/p/syncthing-android-1

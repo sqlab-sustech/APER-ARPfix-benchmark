@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">Protest Tracker</string>
+
+    <!-- Text for login, registration, logout -->
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="password_confirm_hint">Confirm Password</string>
+    <string name="login_button_resting">Login</string>
+    <string name="login_button_in_progress">Logging in…</string>
+    <string name="register_button_resting">Register</string>
+    <string name="register_button_in_progress">Registering…</string>
+    <string name="login_to_registration_button">No account? Register here.</string>
+    <string name="registration_to_login_button">Have an account? Login here.</string>
+    <string name="login_completed">Successfully logged in!</string>
+    <string name="account_created">New account created!</string>
+
+    <!-- Text for settings screen -->
+    <string name="logout_button">Logout</string>
+    <string name="profile_picture_gallery_button">Upload a new profile picture</string>
+    <string name="profile_picture_camera_button">Take a new profile picture</string>
+
+    <!-- Text for items in the Post Feed -->
+    <string name="feed_filter_text">Distance shown:</string>
+
+    <!-- Text for BottomNavigationView -->
+    <string name="bottom_navigation_feed">Feed</string>
+    <string name="bottom_navigation_compose">Compose</string>
+    <string name="bottom_navigation_map">Map</string>
+    <string name="bottom_navigation_settings">Settings</string>
+
+    <!-- Text for ComposeActivity -->
+    <string name="compose_text_hint">What\'s happening?</string>
+    <string name="compose_camera_button">Camera</string>
+    <string name="compose_gallery_button">Gallery</string>
+
+    <!-- Text for no permissions fragment -->
+    <string name="no_permissions_text">Protest Tracker requires location permissions.</string>
+    <string name="no_permissions_button">Request Permissions</string>
+
+    <!-- Transition names -->
+    <string name="transition_username">username</string>
+    <string name="transition_created_at">createdAt</string>
+    <string name="transition_text">text</string>
+    <string name="transition_image">image</string>
+    <string name="transition_profile_picture">profilePic</string>
+
+    <!-- Formatting strings -->
+    <string name="distance_format">%s away</string>
+    <string name="image_storage_date_format">yyyyMMdd_HHmmss</string>
+
+
+    <!-- Toast error text -->
+    <string name="error_login">Error with login. Check username and password and try again.</string>
+    <string name="error_login_facebook">Error with Facebook login. Please check your connection and try again.</string>
+    <string name="error_receive_facebook">Facebook login was not received. Please try again.</string>
+    <string name="error_registration">Error with registration. That username may already be taken.</string>
+    <string name="error_load">Error loading resources. Please check your connection and try again.</string>
+    <string name="error_save">Error saving resource. Please check your connection and try again.</string>
+    <string name="error_receive_image">Image was not received. Please try again.</string>
+    <string name="error_camera_missing">No installed app to open camera from.</string>
+    <string name="error_gallery_missing">No installed app to select photos from.</string>
+    <string name="error_location">Could not find current location. Check your GPS and permission settings and try again.</string>
+    <string name="error_address_generation">Address for image origin unknown.</string>
+    <string name="error_map_load">Map could not load. Check your connection and try again.</string>
+    <string name="error_file_generation">Could not access files.</string>
+    <string name="error_post_no_text">Cannot create a post with no text.</string>
+    <string name="error_post_over_maximum">Cannot create a post over the maximum length.</string>
+    <string name="error_liking">Error while recommending this post. Please check your connection and try again.</string>
+    <string name="error_ignoring">Error while ignoring this post. Please check your connection and try again.</string>
+    <string name="error_facebook_share">This post contains no media to share.</string>
+    <string name="error_password_match">Please ensure the passwords match.</string>
+    <string name="error_credentials_empty">Please enter a username and password.</string>
+    <string name="error_password_whitespace">Your username and password cannot contain whitespace.</string>
+    <string name="error_password_length">Please ensure your password is between %d and %d characters.</string>
+
+</resources>

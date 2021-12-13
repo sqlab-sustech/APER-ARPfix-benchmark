@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+
+repositories {
+    google()
+    jcenter()
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode versionCode
+        versionName version
+
+        testApplicationId "com.securepreferences.test"
+        testInstrumentationRunner "android.test.InstrumentationTestRunner"
+    }
+
+    dependencies {
+
+        api 'com.scottyab:aes-crypto:0.0.5'
+
+        //used when referencing a local copy of aes-crypto
+        //compile project(':aes-crypto-release')
+    }
+
+
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+        }
+    }
+
+    apply from: 'https://raw.github.com/chrisbanes/gradle-mvn-push/master/gradle-mvn-push.gradle'
+}

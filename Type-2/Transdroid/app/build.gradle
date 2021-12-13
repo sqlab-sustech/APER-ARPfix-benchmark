@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 234
+        versionName '2.5.14'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "resourcePackageName": "org.transdroid",
+                        "androidManifestFile": "app/src/main/AndroidManifest.xml"
+                ]
+            }
+        }
+    }
+    signingConfigs {
+        releaseConfig {
+            def propsFile = rootProject.file('keystore.properties')
+            def configName = 'releaseConfig'
+
+            if (propsFile.exists() && android.signingConfigs.hasProperty(configName)) {
+                def props = new Properties()
+                props.load(new FileInputStream(propsFile))
+                keyAlias = props['keyAlias']
+                storeFile = file(props['storeFile'])
+                keyPassword = props['keyPassword']
+                storePassword = props['storePassword']
+            }
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.releaseConfig
+            minifyEnabled false
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        full {
+            dimension "version"
+            applicationId 'org.transdroid.full'
+            resValue "string", "search_history_authority", applicationId + ".search.SearchHistoryProvider"
+        }
+        lite {
+            dimension "version"
+            applicationId 'org.transdroid.lite'
+            resValue "string", "search_history_authority", applicationId + ".search.SearchHistoryProvider"
+        }
+    }
+    lintOptions {
+        disable 'MissingTranslation', 'ExtraTranslation', 'StringFormatInvalid', 'ValidFragment'
+    }
+}
+
+dependencies {
+    implementation 'org.androidannotations:androidannotations-api:4.5.2'
+    implementation 'org.androidannotations:ormlite-api:4.5.2'
+    implementation 'com.j256.ormlite:ormlite-core:4.48'
+    implementation 'com.j256.ormlite:ormlite-android:4.48'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-annotations:28.0.0'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
+    implementation 'com.nispok:snackbar:2.11.0'
+    implementation 'com.github.aegnor:rencode-java:cb628e824e'
+    implementation('com.github.afollestad.material-dialogs:core:0.9.6.0@aar') {
+        transitive = true
+    }
+    implementation 'com.evernote:android-job:1.2.6'
+    annotationProcessor 'org.androidannotations:androidannotations:4.5.2'
+    annotationProcessor 'org.androidannotations:ormlite:4.5.2'
+}
+

@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.hugo'
+
+repositories {
+    maven {
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+    }
+}
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 9
+        versionName "0.1.8"
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+            res.srcDirs = ['res']
+            aidl.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            java.srcDirs = ['src']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
+    //check if the keystore details are defined in gradle.properties (this is so the key is not in github)
+    if (project.hasProperty("SECURE_PREF_SAMPLE_STORE")) {
+        signingConfigs {
+            //from gradle.properties
+            release {
+                storeFile file(SECURE_PREF_SAMPLE_STORE)
+                keyAlias SECURE_PREF_SAMPLE_KEY
+                storePassword SECURE_PREF_SAMPLE_STORE_PASS
+                keyPassword SECURE_PREF_SAMPLE_KEY_PASS
+            }
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+
+        release {
+            minifyEnabled true
+            if (project.hasProperty("SECURE_PREF_SAMPLE_STORE")) {
+                signingConfig signingConfigs.release
+            }
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+
+
+    dependencies {
+        implementation 'com.android.support:appcompat-v7:28.0.0'
+
+        //compile 'com.scottyab:secure-preferences-lib:0.1.1'
+        //snapshot
+        //compile('com.scottyab:secure-preferences-lib:0.1.1-SNAPSHOT')
+
+        //used when using local aes-crypto
+        //compile project(':aes-crypto-release')
+        implementation project(':library')
+    }
+}

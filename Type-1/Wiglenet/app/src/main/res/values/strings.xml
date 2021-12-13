@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">D047Wiglenet</string>
+    <string name="please_allow">Please allow permission to use</string>
+    <string name="gps_permission">GPS (Fine Location)</string>
+    <string name="cell_permission">Cell Location (Coarse Location)</string>
+    <string name="allow_storage">Database is put on external storage by default, please allow media/file storage</string>
+</resources>

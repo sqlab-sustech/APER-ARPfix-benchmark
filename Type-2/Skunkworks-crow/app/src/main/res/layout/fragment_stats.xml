@@ -1,0 +1,43 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchParent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        style="@style/MatchParentWidth"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <View
+            style="@style/MatchParentWidth"
+            android:layout_weight="1.0" />
+
+        <TextView
+            android:id="@+id/formTitle"
+            style="@style/WrapContent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/formSubTitle"
+            style="@style/WrapContent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:paddingBottom="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="362dp"
+            android:layout_height="184dp"
+            android:layout_gravity="center" />
+
+        <View
+            style="@style/MatchParentWidth"
+            android:layout_weight="1.0" />
+    </LinearLayout>
+</ScrollView>
